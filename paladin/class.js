@@ -11,19 +11,20 @@ function rotFor(l,W){const a=[];
  if(l>=20)a.push('<b>Consecration</b> on 3+ mobs (mana-heavy)');
  if(l>=8)a.push('<b>Hammer of Justice</b> (key 5) to stun or interrupt');
  if(l>=20)a.push('Exorcism (Bottom 4) on Undead/Demons');
- a.push((l>=20?'Top-up: Flash of Light (key 6) · ':'')+'Low HP: Divine Protection → Holy Light (Top 1-2)'+(l>=10?' · Last resort: Lay on Hands (Top 7)':''));
+ a.push('Spot heal between pulls: '+(l>=20?'Flash of Light (key 6) to top up, ':'')+'Holy Light to full, then drink · Low HP: Divine Protection → Holy Light (Top 1-2)'+(l>=10?' · Last resort: Lay on Hands (Top 7)':''));
  if(l>=44)a.push('Hammer of Wrath (Top 6) on targets below 20% HP');
+ if(l>=55)a.push('Unsealed Wrath: swap Seal of Command / Righteousness between swings when Mana allows');
  if(l>=10)a.push('Bad pull: Blessing of Protection on yourself and run'+(l>=18?' · Rooted: Blessing of Freedom':''));
  a.push('Buffs: Bow & Buff ('+(l>=20?'Kings':'Might')+') + Retribution Aura');
- return `<ol>${a.map(x=>'<li>'+x+'</li>').join('')}</ol><span class="src">Icy Veins Forever Ret</span>`}
+ return `<ol>${a.map(x=>'<li>'+x+'</li>').join('')}</ol><span class="src">Icy Veins + Wowhead Forever Ret</span>`}
 const SH={'Hammer of Justice':'Hammer of Justice','Blessing of Protection':'Bless. of Protect','Divine Protection':'Divine Protect','Seal of the Crusader':'Seal of Crusader','Seal of Righteousness':'Seal of Right.','Seal of Command':'Seal of Command','Judgement':'Judge-ment','Consecration':'Consec-ration','Exorcism':'Exor-cism','Flash of Light':'Flash of Light','Blessing of Might':'Bless. of Might','Blessing of Kings':'Bless. of Kings','Redemption':'Redemp-tion','Hearthstone':'Hearth-stone','Blessing of Freedom':'Bless. of Freedom','Hammer of Wrath':'Hammer of Wrath','Divine Shield':'Divine Shield','Bow & Buff':'Bow & Buff','Holy Strike':'Holy Strike','Divine Intervention':'Divine Interv.','Summon Warhorse':'Warhorse','Devotion Aura':'Devotion','Retribution Aura':'Retri-bution','Concentration Aura':'Concen-tration','Shadow Resistance Aura':'Shadow Res.','Frost Resistance Aura':'Frost Res.','Fire Resistance Aura':'Fire Res.'};
 function wfix(x){if(!x)return x;const c=JSON.parse(JSON.stringify(x));if(W!=='slow'&&c.mid[2]&&/^Seal of (Command|Righteousness)$/.test(c.mid[2].n)&&window.__L>=10)c.mid[2].n='Seal of Fury';return c}
 function macroUpd(l){const n=l>=20?'Blessing of Kings':'Blessing of Might';const t=$('#macroTxt');if(t)t.textContent='#showtooltip '+n+'\n/cast '+n+'\n/bow';const ic=$('#macroIc');if(ic)ic.src='icons/spells/'+SPELLS[n].i+'.jpg'}
 
-window.K={prefix:'pal',modeKey:'wpn2',modes:['fast','slow'],rotFor,advice:sealWhy,SH,
+window.K={prefix:'pal',modeKey:'wpn3',modes:['slow'],rotFor,advice:sealWhy,SH,
  wfix:(c,l,W)=>{if(W!=='slow'&&c.mid[2]&&/^Seal of (Command|Righteousness)$/.test(c.mid[2].n)&&l>=10)c.mid[2].n='Seal of Fury';return c},
- barLab:{top:['Top','click · combat cooldowns'],mid:['Middle','keys 1-7 · pressed constantly'],bot:['Bottom','long CDs · out of combat'],aur:['Aura Bar','auras + Righteous Fury']},
+ barLab:{top:['Top','click · combat cooldowns'],mid:['Middle','keys 1-7 · pressed constantly'],bot:['Bottom','long CDs · out of combat'],aur:['Aura Bar','auras + Seal of the Crusader']},
  iconAlias:(n,l)=>n==='Bow & Buff'?(l>=20?'Blessing of Kings':'Blessing of Might'):null,
- label:n=>n==='Righteous Fury'?'Prot: R. Fury':null,macroUpd,
- wnote:{slow:'Ret alt spec (dual spec from 40): slowest two-hander, Seal of Command once you have the talent.',fast:'Prot main: one-hander + shield, Seal of Fury from 10 (WoW Forever DB / Blizzard deep dive).'}};
+ label:n=>null,macroUpd,
+ wnote:{slow:'Ret main: slowest two-hander you can find, Seal of Command once you have the talent (20).'}};
 })();
