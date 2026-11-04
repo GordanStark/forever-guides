@@ -21,10 +21,10 @@ const SH={'Hammer of Justice':'Hammer of Justice','Blessing of Protection':'Bles
 function wfix(x){if(!x)return x;const c=JSON.parse(JSON.stringify(x));if(W!=='slow'&&c.mid[2]&&/^Seal of (Command|Righteousness)$/.test(c.mid[2].n)&&window.__L>=10)c.mid[2].n='Seal of Fury';return c}
 function macroUpd(l){const n=l>=20?'Blessing of Kings':'Blessing of Might';const t=$('#macroTxt');if(t)t.textContent='#showtooltip '+n+'\n/cast '+n+'\n/bow';const ic=$('#macroIc');if(ic)ic.src='icons/spells/'+SPELLS[n].i+'.jpg'}
 
-window.K={prefix:'pal',modeKey:'wpn3',modes:['slow'],rotFor,advice:sealWhy,SH,
+window.K={prefix:'pal',modeKey:'wpn3',modes:['slow','fast'],rotFor,advice:sealWhy,SH,
  wfix:(c,l,W)=>{if(W!=='slow'&&c.mid[2]&&/^Seal of (Command|Righteousness)$/.test(c.mid[2].n)&&l>=10)c.mid[2].n='Seal of Fury';return c},
  barLab:{top:['Top','click · combat cooldowns'],mid:['Middle','keys 1-7 · pressed constantly'],bot:['Bottom','long CDs · out of combat'],aur:['Aura Bar','auras + Seal of the Crusader']},
  iconAlias:(n,l)=>n==='Bow & Buff'?(l>=20?'Blessing of Kings':'Blessing of Might'):null,
  label:n=>null,macroUpd,
- wnote:{slow:'Ret main: slowest two-hander you can find, Seal of Command once you have the talent (20).'}};
+ wnote:{slow:'Ret main: slowest two-hander you can find, Seal of Command once you have the talent (20).',fast:'Prot off-spec: one-hander + shield, Seal of Fury from 10, Righteous Fury on.'}};
 })();
