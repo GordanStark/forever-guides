@@ -85,6 +85,9 @@ details.card ul{margin:6px 0;padding-left:20px}
 .trn .adv-skip .ab{background:rgba(224,160,80,.18);color:#e0a050;border:1px solid rgba(224,160,80,.4)}
 .trn .adv-quest .ab{background:rgba(61,143,212,.22);color:#7eb8e8;border:1px solid rgba(61,143,212,.4)}
 .trn .adv-start .ab{background:rgba(154,143,120,.2);color:#c4b79a;border:1px solid rgba(154,143,120,.35)}
+.trn-h.talent{color:#b9a0f0}.trn-h.book{color:#c4b79a}
+.trn .adv-talent .ab{background:rgba(150,120,230,.2);color:#b9a0f0;border:1px solid rgba(150,120,230,.4)}
+.trn .adv-book .ab{background:rgba(154,143,120,.2);color:#c4b79a;border:1px solid rgba(154,143,120,.35)}
 .trn .cost{color:var(--gold,#f0d060);font-weight:600;font-size:12px}
 .trn .cost.muted{color:var(--muted,#9a8f78);font-weight:400}
 .trn .why{color:var(--muted,#9a8f78);font-size:12px;margin:2px 0 6px 0;line-height:1.35}
