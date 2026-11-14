@@ -47,10 +47,10 @@ if('serviceWorker' in navigator){navigator.serviceWorker.register('../sw.js',{sc
 
 setTimeout(()=>{if(!location.search.includes('noscroll')&&(location.hash||'#guide')==='#guide'){const r=$('.row.cur');if(r)window.scrollTo(0,r.offsetTop-$('.bar').offsetHeight-8)}},50);
 function wfix(x,l){return x&&K.wfix?K.wfix(JSON.parse(JSON.stringify(x)),l,W):x}
-function renderBars(l){const b=wfix(window.BARS[l],l),p=wfix(window.BARS[l-1],l-1);const lab=K.barLab;
+function renderBars(l){const b=wfix(window.BARS[l],l),p=wfix(window.BARS[l-1],l-1);const lab=K.barLab,kr=K.keyRows||['mid'];
  $('#barLv').textContent=l;
- $('#barsBox').innerHTML=['top','mid','bot','aur'].map(r=>`<div class="brow${r==='aur'?' aur':''}"><div class="blab"><b>${lab[r][0]}</b> ${tc(lab[r][1])}</div><div class="bslots">`+b[r].map((s,i)=>{if(!s)return`<div class="bs empty">${r==='mid'?i+1:''}</div>`;
-  const nw=!p||JSON.stringify(p[r][i])!==JSON.stringify(s);const al=K.iconAlias&&K.iconAlias(s.n,l);const v=al?{i:SPELLS[al].i}:(SPELLS[s.n]||{});const tag=v.u?'a':'div';return`<${tag} class="bs${nw?' new':''}${s.u?' unc':''}"${v.u?` href="${v.u}" target="_blank" rel="noopener"`:''} title="${s.n}">${v.i?`<img src="icons/spells/${v.i}.jpg" alt="">`:''}${r==='mid'?`<i>${i+1}</i>`:''}<span>${(K.label&&K.label(s.n))||K.SH[s.n]||s.n}</span>${nw?'<em>New</em>':''}</${tag}>`}).join('')+'</div></div>').join('')}
+ $('#barsBox').innerHTML=['top','mid','bot','aur'].filter(r=>b[r]&&b[r].length).map(r=>{const ky=kr.includes(r),n=b[r].length,kn=i=>(n>9&&i===9)?0:i+1;return `<div class="brow${r==='aur'?' aur':''}"><div class="blab"><b>${lab[r][0]}</b> ${tc(lab[r][1])}</div><div class="bslots${n>7?' b10':''}">`+b[r].map((s,i)=>{if(!s)return`<div class="bs empty">${ky?kn(i):''}</div>`;
+  const nw=!p||!p[r]||JSON.stringify(p[r][i])!==JSON.stringify(s);const al=K.iconAlias&&K.iconAlias(s.n,l);const v=al?{i:SPELLS[al].i}:(SPELLS[s.n]||{});const tag=v.u?'a':'div';return`<${tag} class="bs${nw?' new':''}${s.u?' unc':''}"${v.u?` href="${v.u}" target="_blank" rel="noopener"`:''} title="${s.n}">${v.i?`<img src="icons/spells/${v.i}.jpg" alt="">`:''}${ky?`<i>${kn(i)}</i>`:''}<span>${(K.label&&K.label(s.n))||K.SH[s.n]||s.n}</span>${nw?'<em>New</em>':''}</${tag}>`}).join('')+'</div></div>'}).join('')}
 function macroUpd(l){if(K.macroUpd)K.macroUpd(l)}
 const _setLv=setLv;setLv=function(l){_setLv(l);renderBars(+sel.value);macroUpd(+sel.value)};renderBars(+sel.value);macroUpd(+sel.value);
 

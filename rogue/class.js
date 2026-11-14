@@ -16,7 +16,7 @@ const SH={'Sinister Strike':'Sinister Strike','Slice and Dice':'Slice & Dice','P
 function wfix(c,l,W){return c}
 function macroUpd(l){}
 window.K={prefix:'rog',modeKey:'spec',modes:['amb'],rotFor,advice,SH,wfix,
- barLab:{top:['Top','click · escapes and interrupts'],mid:['Middle','keys 1-7 · pressed constantly'],bot:['Bottom','out of combat'],aur:['Utility','openers and cooldowns']},
+ barLab:{top:['Normal bar','keys 1-0 · out of Stealth'],mid:['Stealth bar','keys 1-0 · swaps in when you Stealth'],bot:['Bar 2','click · big cooldowns and out of combat'],aur:['Utility','']},keyRows:['top','mid'],
  iconAlias:null,label:null,macroUpd,
  wnote:{amb:'Ambush build: a dagger in the main hand; Ambush, Backstab and Ghostly Strike (180% with a dagger) all want it (wowforever.be).'}};
 })();
