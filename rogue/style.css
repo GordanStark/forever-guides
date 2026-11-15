@@ -92,3 +92,5 @@ details.card ul{margin:6px 0;padding-left:20px}
 .trn .cost{color:var(--gold,#f0d060);font-weight:600;font-size:12px}
 .trn .cost.muted{color:var(--muted,#9a8f78);font-weight:400}
 .trn .why{color:var(--muted,#9a8f78);font-size:12px;margin:2px 0 6px 0;line-height:1.35}
+
+.g37 .bslots{width:100%;max-width:none}.g37 .ghdr{font-size:10px;color:var(--gold2);text-align:center;margin:0 0 2px;background:transparent;border:0;padding:0}.g37 .ghdr>div{padding:0}.g37 .brow{margin:4px 0}.bs.lock{opacity:.45;filter:grayscale(1)}.bs.lock span b{color:var(--gold2)}
