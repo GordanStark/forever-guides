@@ -6,14 +6,14 @@ function sealWhy(l,W){if(W==='slow')return l<20?'Slow 2H: Seal of Righteousness 
  return l<10?'Prot: Seal of Righteousness until Seal of Fury at 10.':'Prot (1H + shield): Seal of Fury. Its absorb needs a shield; faster weapons get more from its flat Holy damage. Judging it taunts.'}
 function rotFor(l,W){const a=[];
  a.push('<b>'+sealAt(l,W)+'</b> up <span class="src">'+WN[W]+'</span>');
- a.push('<b>Judgement</b> on CD (keeps your seal)');
+ a.push('<b>Judgement</b> on CD (keeps your seal). Judgement of Command is melee and procs on-hit effects; other Judgements are ranged and use ranged hit');
  if(l>=6)a.push('<b>Holy Strike</b> on CD');
  if(l>=20)a.push('<b>Consecration</b> on 3+ mobs (mana-heavy)');
  if(l>=8)a.push('<b>Hammer of Justice</b> (key 5) to stun or interrupt');
  if(l>=20)a.push('Exorcism (Bottom 4) on Undead/Demons');
  a.push('Spot heal between pulls: '+(l>=20?'Flash of Light (key 6) to top up, ':'')+'Holy Light to full, then drink · Low HP: Divine Protection → Holy Light (Top 1-2)'+(l>=10?' · Last resort: Lay on Hands (Top 7)':''));
  if(l>=44)a.push('Hammer of Wrath (Top 6) on targets below 20% HP');
- if(l>=55)a.push('Unsealed Wrath: swap Seal of Command / Righteousness between swings when Mana allows');
+ if(l>=40)a.push('Unsealed Wrath: swap Seal of Command / Righteousness between swings when Mana allows');
  if(l>=10)a.push('Bad pull: Blessing of Protection on yourself and run'+(l>=18?' · Rooted: Blessing of Freedom':''));
  a.push('Buffs: Bow & Buff ('+(l>=20?'Kings':'Might')+') + Retribution Aura');
  return `<ol>${a.map(x=>'<li>'+x+'</li>').join('')}</ol><span class="src">Icy Veins + Wowhead Forever Ret</span>`}
