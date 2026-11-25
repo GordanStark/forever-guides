@@ -11,7 +11,7 @@ function rotFor(l,W){const a=[];
  else if(l>=6)a.push('<b>Arcane Shot</b> when mana allows');
  if(l>=1)a.push('Too close: Raptor Strike'+(l>=12?' · Wing Clip':'')+(l>=20?' · Disengage':''));
  if(l>=12)a.push('Pet low: Mend Pet (Top 1)');
- if(W==='bm'&&l>=30)a.push('Intimidation (Top 7) to stun or peel');
+ if(W==='bm'&&l>=34)a.push('Intimidation (Top 7) to stun or peel');
  if(W==='bm'&&l>=40)a.push('Bestial Wrath (Aspect 5) on the hardest enemy');
  if(W==='mm'&&l>=34)a.push('Trueshot Aura up (party ranged attack power)');
  if(l>=30)a.push('Bad pull: Feign Death');
@@ -24,5 +24,5 @@ function macroUpd(l){}
 window.K={prefix:'hun',modeKey:'spec',modes:['bm','mm'],rotFor,advice,SH,wfix,
  barLab:{top:['Top','click · pet care and escapes'],mid:['Middle','keys 1-7 · pressed constantly'],bot:['Bottom','pet and travel · out of combat'],aur:['Aspect Bar','aspects, tracking, traps']},
  iconAlias:null,label:null,macroUpd,
- wnote:{bm:'BM main: the highest damage bow, gun or crossbow you can find; your pet inherits your crit and attack power (WoW Forever DB).',mm:'MM alt: same ranged weapon; Intellect counts about as much as Agility once Careful Aim is 5/5 (WoW Forever DB).'}};
+ wnote:{bm:'BM main: the highest damage bow, gun or crossbow you can find; your pet inherits your crit and attack power (WoW Forever DB).',mm:'MM alt: same ranged weapon; with Careful Aim 5/5, Intellect gives 1 attack power per point, about half an Agility point (WoW Forever DB).'}};
 })();
